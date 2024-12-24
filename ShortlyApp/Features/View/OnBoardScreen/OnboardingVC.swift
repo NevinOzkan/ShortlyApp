@@ -53,9 +53,9 @@ class OnboardingVC: UIViewController {
 
     @IBAction func skipButton(_ sender: Any) {
         let homeVC = HomeVC()
-        homeVC.modalPresentationStyle = .fullScreen
-        present(homeVC, animated: true, completion: nil)
-    }
+            homeVC.modalPresentationStyle = .fullScreen
+            present(homeVC, animated: true, completion: nil)
+        }
     
     private func setupPageControl() {
         pageControl.numberOfPages = pages.count
