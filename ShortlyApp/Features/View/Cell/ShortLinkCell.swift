@@ -22,15 +22,12 @@ class ShortLinkCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-       
     }
     
     func configureCell(with link: Link) {
         longUrl.text = link.destination
         shortUrl.text = link.shortUrl
     }
-    
-   
 
     @IBAction func deleteCell(_ sender: Any) {
         onDelete?()

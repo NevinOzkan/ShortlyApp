@@ -51,10 +51,10 @@ extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
         let link = links[indexPath.row]
         cell.configureCell(with: link)
         
-               cell.onDelete = { [weak self] in
-                   self?.links.remove(at: indexPath.row)
-                   tableView.deleteRows(at: [indexPath], with: .automatic)
-               }
+        cell.onDelete = { [weak self] in
+            self?.links.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
         
         return cell
     }
