@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import SwiftData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var container: ModelContainer?
 
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        container = try? ModelContainer(for: ShortLink.self) // Array kullanmayın
         return true
     }
+
 
     // MARK: UISceneSession Lifecycle
 

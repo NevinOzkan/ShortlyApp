@@ -16,13 +16,14 @@ class ShortLinkCell: UITableViewCell {
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var delegateIcon: UIButton!
     
-    
+    var shortenedUrl: String?
     var onDelete: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-    }
+            
+         }
+         
     
     func configureCell(with link: Link) {
         longUrl.text = link.destination

@@ -10,53 +10,49 @@ import UIKit
 class HomeVC: UIViewController {
     
     @IBOutlet weak var shortenTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private let apiService = APIService()
-    
+    private var viewModel: LinkListViewModel!
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = LinkListViewModel(apiService: MockAPIService())
+        
+        viewModel.onLinksUpdated = { [weak self] shortenedUrl in
+            self?.activityIndicator.stopAnimating()
+            self?.navigateToHistoryVC(with: shortenedUrl)
+        }
+        
+        viewModel.onError = { [weak self] errorMessage in
+            self?.activityIndicator.stopAnimating()
+            self?.showErrorAlert(message: errorMessage)
+        }
     }
     
     @IBAction func shortenButton(_ sender: Any) {
         guard let originalUrl = shortenTextField.text, !originalUrl.isEmpty else {
-            showErrorAlert(message: "Please enter a valid URL.")
+            showErrorAlert(message: "Lütfen Bir URL Gir.")
             return
         }
+        activityIndicator.startAnimating()
         
-        apiService.shortenLink(originalUrl: originalUrl, title: "Shortened URL") { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let links):
-                print("Links from API:", links) 
-                if let firstLink = links.first {
-                    DispatchQueue.main.async {
-                        self.navigateToHistoryVC(with: firstLink)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.showErrorAlert(message: "No link was created.")
-                    }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.showErrorAlert(message: error.localizedDescription)
-                }
-            }
-        }
+        viewModel.shortenLink(originalUrl: originalUrl, title: "Shortened URL")
+        
+        
     }
-    
-    private func navigateToHistoryVC(with link: Link) {
+
+    func navigateToHistoryVC(with shortenedUrl: String) {
         let historyVC = HistoryVC(nibName: "HistoryVC", bundle: nil)
-        historyVC.addLink(link)
         
-       
+        historyVC.shortenedUrl = shortenedUrl
+        
         let historyNavController = UINavigationController(rootViewController: historyVC)
         historyNavController.modalPresentationStyle = .fullScreen
         
         present(historyNavController, animated: true, completion: nil)
     }
+       
     
     private func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
