@@ -24,10 +24,7 @@ class HomeVC: UIViewController {
             self?.navigateToHistoryVC(with: shortenedUrl)
         }
         
-        viewModel.onError = { [weak self] errorMessage in
-            self?.activityIndicator.stopAnimating()
-            self?.showErrorAlert(message: errorMessage)
-        }
+      
     }
     
     @IBAction func shortenButton(_ sender: Any) {
@@ -38,8 +35,6 @@ class HomeVC: UIViewController {
         activityIndicator.startAnimating()
         
         viewModel.shortenLink(originalUrl: originalUrl, title: "Shortened URL")
-        
-        
     }
 
     func navigateToHistoryVC(with shortenedUrl: String) {

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        container = try? ModelContainer(for: ShortLink.self) // Array kullanmayın
+        container = try? ModelContainer(for: ShortLink.self)
         return true
     }
 
