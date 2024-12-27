@@ -13,7 +13,7 @@ class MockAPIService: APIServiceProtocol {
             id: UUID().uuidString,
             title: title,
             destination: originalUrl,
-            shortUrl: "https://mock.ly/abcd123"
+            shortUrl: "https://mock.ly/abcd1"
         )
         
         completion(.success([mockLink1]))

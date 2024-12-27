@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
 class LinkListViewModel {
+    
     private var links: [Link] = []
     private let apiService: APIServiceProtocol
     var onLinksUpdated: ((String) -> Void)? 

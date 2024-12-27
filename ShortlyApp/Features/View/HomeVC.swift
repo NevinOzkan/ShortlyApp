@@ -20,7 +20,6 @@ class HomeVC: UIViewController {
     
     var links: [Link] = []
     private var viewModel: LinkListViewModel!
-    private var shortenedUrls: [String] = []
     private var container: ModelContainer? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return nil
@@ -35,14 +34,6 @@ class HomeVC: UIViewController {
         
         viewModel = LinkListViewModel(apiService: MockAPIService())
         
-        viewModel.onLinksUpdated = { [weak self] shortenedUrl in
-            
-            guard let self = self else { return }
-            
-            let link = Link(destination: shortenedUrl, shortUrl: shortenedUrl)
-            self.links.append(link)
-            self.tableView.reloadData()
-        }
         
         imageView.isHidden = false
         textField.isHidden = false
