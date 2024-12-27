@@ -10,6 +10,7 @@ import SwiftData
 
 class HomeVC: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var logoImage: UIImageView!
@@ -48,6 +49,7 @@ class HomeVC: UIViewController {
         label.isHidden = false
         tableView.isHidden = true
         shortenTextField.isHidden = false
+        titleLabel.isHidden = true
     }
     
     private func setupUI() {
@@ -148,6 +150,7 @@ class HomeVC: UIViewController {
            textField.isHidden = true
            imageView.isHidden = true
            
+           titleLabel.isHidden = false
            tableView.isHidden = false
            fetchLinks()
            

@@ -16,6 +16,7 @@
                 <outlet property="shortenTextField" destination="oR3-JV-lbm" id="i2V-f9-R4o"/>
                 <outlet property="tableView" destination="h2n-N1-31W" id="wlu-jS-pcu"/>
                 <outlet property="textField" destination="k5d-Td-GBZ" id="X8p-iS-151"/>
+                <outlet property="titleLabel" destination="0Um-iM-yjf" id="v2z-xT-nSk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -48,7 +49,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h2n-N1-31W">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="675"/>
+                    <rect key="frame" x="0.0" y="120" width="393" height="555"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -75,6 +76,13 @@
                     <rect key="frame" x="24" y="222" width="344" height="315"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Link History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Um-iM-yjf">
+                    <rect key="frame" x="105" y="82" width="182" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
