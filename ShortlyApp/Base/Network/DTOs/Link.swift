@@ -13,8 +13,8 @@ struct Link: Codable {
     let destination: String
     let shortUrl: String
     
-    // Manuel olarak Link nesnesi oluşturmak için bir init ekleyin
-    init(id: String, title: String, destination: String, shortUrl: String) {
+    
+    init(id: String = "", title: String = "", destination: String = "", shortUrl: String) {
         self.id = id
         self.title = title
         self.destination = destination

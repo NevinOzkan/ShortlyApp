@@ -9,7 +9,6 @@ import UIKit
 
 class ShortLinkCell: UITableViewCell {
     
-    
     @IBOutlet weak var longUrl: UILabel!
     @IBOutlet weak var shortUrl: UILabel!
     @IBOutlet weak var view: UIView!
@@ -21,9 +20,8 @@ class ShortLinkCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-            
-         }
-         
+        
+    }
     
     func configureCell(with link: Link) {
         longUrl.text = link.destination

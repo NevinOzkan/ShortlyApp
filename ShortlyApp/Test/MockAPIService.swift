@@ -16,13 +16,6 @@ class MockAPIService: APIServiceProtocol {
             shortUrl: "https://mock.ly/abcd123"
         )
         
-        let mockLink2 = Link(
-            id: UUID().uuidString,
-            title: "\(title) 2",
-            destination: originalUrl,
-            shortUrl: "https://mock.ly/efgh456"
-        )
-        
-        completion(.success([mockLink1, mockLink2]))
+        completion(.success([mockLink1]))
     }
 }

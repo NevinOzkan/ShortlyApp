@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var container: ModelContainer?
 
     func application(
