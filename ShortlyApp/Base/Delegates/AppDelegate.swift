@@ -5,22 +5,18 @@
 //  Created by Nevin Özkan on 23.12.2024.
 //
 
-import UIKit
 import SwiftData
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var container: ModelContainer?
+    var window: UIWindow?
+    var container: ModelContainer!
 
-    func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         container = try? ModelContainer(for: ShortLink.self)
         return true
     }
-
 
     // MARK: UISceneSession Lifecycle
 

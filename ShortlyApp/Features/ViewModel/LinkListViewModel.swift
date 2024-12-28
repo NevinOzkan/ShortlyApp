@@ -12,20 +12,101 @@ class LinkListViewModel {
     
     private var links: [Link] = []
     private let apiService: APIServiceProtocol
-    var onLinksUpdated: ((String) -> Void)? 
+    var onLinksUpdated: (([Link]) -> Void)?
     var onError: ((String) -> Void)?
+    
+    private var container: ModelContainer?
+    
+    init(apiService: APIServiceProtocol = APIService(), container: ModelContainer?) {
+        self.apiService = apiService
+        self.container = container
+    }
+    
+    func addLink(_ link: Link) {
+        links.append(link)
+        onLinksUpdated?(links)
+        saveLink(id: link.id, shortURL: link.shortUrl, longURL: link.destination)
+    }
 
     
-    init(apiService: APIServiceProtocol = APIService()) {
-        self.apiService = apiService
+    func fetchLinks() {
+        Task { @MainActor in
+            guard let container = container else { return }
+            let context = container.mainContext
+            
+            do {
+                let fetchDescriptor = FetchDescriptor<ShortLink>()
+                let savedLinks = try context.fetch(fetchDescriptor)
+                
+                // Çekilen verileri 'links' dizisine dönüştür.
+                links = savedLinks.map { ShortLink in
+                    Link(id: ShortLink.id, title: "Saved Link", destination: ShortLink.longURL, shortUrl: ShortLink.shortURL)
+                }
+                
+                self.onLinksUpdated?(links)
+            } catch {
+                print("Veri çekme hatası: \(error.localizedDescription)")
+            }
+        }
     }
+    
+    func saveLink(id: String, shortURL: String, longURL: String) {
+        Task { @MainActor in
+            guard let container = container else { return }
+            let context = container.mainContext
+
+            do {
+                let fetchDescriptor = FetchDescriptor<ShortLink>()
+                let existingLinks = try context.fetch(fetchDescriptor)
+
+                if existingLinks.contains(where: { $0.id == id }) {
+                    print("Bu link zaten kaydedilmiş.")
+                    return
+                }
+
+                // Yeni linki veritabanına kaydet.
+                let newLink = ShortLink(id: id, shortURL: shortURL, longURL: longURL)
+                context.insert(newLink)
+                try context.save()
+
+                print("Link kaydedildi: \(shortURL)")
+            } catch {
+                print("Link kayıt edilemedi: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    
+    func deleteLink(at indexPath: IndexPath) {
+        Task { @MainActor in
+            let linkToDelete = links[indexPath.row]
+            guard let container = container else { return }
+            let context = container.mainContext
+
+            do {
+                let fetchDescriptor = FetchDescriptor<ShortLink>()
+                let savedLinks = try context.fetch(fetchDescriptor)
+
+                if let shortLink = savedLinks.first(where: { $0.id == linkToDelete.id }) {
+                    context.delete(shortLink)
+                    try context.save()
+
+                    links.remove(at: indexPath.row)
+                    self.onLinksUpdated?(links)
+                }
+            } catch {
+                print("Error deleting link: \(error.localizedDescription)")
+            }
+        }
+    }
+
     
     func shortenLink(originalUrl: String, title: String) {
         apiService.shortenLink(originalUrl: originalUrl, title: title) { [weak self] result in
             switch result {
             case .success(let links):
                 if let firstLink = links.first {
-                    self?.onLinksUpdated?(firstLink.shortUrl)
+                    self?.addLink(firstLink)
                 }
             case .failure(let error):
                 self?.onError?("Link kısaltılamadı. Hata: \(error.localizedDescription)")
