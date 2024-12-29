@@ -28,30 +28,28 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            setupUI()
-
-            if let container = container {
-                viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
-
-                viewModel.onLinksUpdated = { [weak self] links in
-                    self?.links = links
-                    self?.tableView.reloadData()
-                }
-
-                viewModel.fetchLinks()
-            } else {
-                print("Container bulunamadı.")
+        setupUI()
+        
+        if let container = container {
+            viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
+            
+            viewModel.onLinksUpdated = { [weak self] links in
+                self?.links = links
+                self?.tableView.reloadData()
             }
             
-            // UI'yi başlangıçta gizle
-            imageView.isHidden = false
-            textField.isHidden = false
-            label.isHidden = false
-            tableView.isHidden = true
-            shortenTextField.isHidden = false
-            titleLabel.isHidden = true
+            viewModel.fetchLinks()
+        } else {
+            print("Container bulunamadı.")
         }
-
+        
+        imageView.isHidden = false
+        textField.isHidden = false
+        label.isHidden = false
+        tableView.isHidden = true
+        shortenTextField.isHidden = false
+        titleLabel.isHidden = true
+    }
     
     private func setupUI() {
         let nib = UINib(nibName: "ShortLinkCell", bundle: nil)
