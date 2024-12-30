@@ -28,14 +28,26 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-            viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
+        viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
+        
+        viewModel.onLinksUpdated = { [weak self] links in
+            self?.viewModel.links = links
             
-            viewModel.onLinksUpdated = { [weak self] links in
-                self?.viewModel.links = links
+            if links.isEmpty {
+                self?.imageView.isHidden = false
+                self?.textField.isHidden = false
+                self?.label.isHidden = false
+                self?.tableView.isHidden = true
+            } else {
                 self?.tableView.reloadData()
+                self?.tableView.isHidden = false
+                self?.imageView.isHidden = true
+                self?.textField.isHidden = true
+                self?.label.isHidden = true
             }
-            
-            viewModel.fetchLinks()
+        }
+        
+        viewModel.fetchLinks()
         
         imageView.isHidden = false
         textField.isHidden = false
