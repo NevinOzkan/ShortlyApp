@@ -38,23 +38,19 @@ class HomeVC: UIViewController {
                 self?.textField.isHidden = false
                 self?.label.isHidden = false
                 self?.tableView.isHidden = true
+                self?.titleLabel.isHidden = true
             } else {
                 self?.tableView.reloadData()
                 self?.tableView.isHidden = false
                 self?.imageView.isHidden = true
                 self?.textField.isHidden = true
                 self?.label.isHidden = true
+                self?.titleLabel.isHidden = false
             }
         }
         
         viewModel.fetchLinks()
         
-        imageView.isHidden = false
-        textField.isHidden = false
-        label.isHidden = false
-        tableView.isHidden = true
-        shortenTextField.isHidden = false
-        titleLabel.isHidden = true
     }
     
     private func setupUI() {
@@ -78,13 +74,7 @@ class HomeVC: UIViewController {
             return
         }
         
-        logoImage.isHidden = true
-        label.isHidden = true
-        textField.isHidden = true
-        imageView.isHidden = true
-        titleLabel.isHidden = false
-        tableView.isHidden = false
-        
+       
         viewModel.shortenLink(originalUrl: originalUrl, title: "Shortened URL")
     }
     
