@@ -18,30 +18,24 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var shortenTextField: UITextField!
     
-    var links: [Link] = []
     private var viewModel: LinkListViewModel!
     
     private var container: ModelContainer? {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
-        return appDelegate.container
+        return (UIApplication.shared.delegate as? AppDelegate)?.container
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
-        if let container = container {
             viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
             
             viewModel.onLinksUpdated = { [weak self] links in
-                self?.links = links
+                self?.viewModel.links = links
                 self?.tableView.reloadData()
             }
             
             viewModel.fetchLinks()
-        } else {
-            print("Container bulunamadı.")
-        }
         
         imageView.isHidden = false
         textField.isHidden = false
@@ -60,8 +54,8 @@ class HomeVC: UIViewController {
     }
     
     func addLink(_ link: Link) {
-        let newIndexPath = IndexPath(row: links.count, section: 0)
-        links.append(link)
+        let newIndexPath = IndexPath(row: viewModel.links.count, section: 0)
+        viewModel.links.append(link)
         tableView.insertRows(at: [newIndexPath], with: .automatic)
     }
     
@@ -76,7 +70,6 @@ class HomeVC: UIViewController {
         label.isHidden = true
         textField.isHidden = true
         imageView.isHidden = true
-        
         titleLabel.isHidden = false
         tableView.isHidden = false
         
@@ -92,7 +85,7 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return links.count
+        return viewModel.links.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,7 +93,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        let link = links[indexPath.row]
+        let link = viewModel.links[indexPath.row]
         cell.configureCell(with: link)
         
         cell.onDelete = { [weak self] in

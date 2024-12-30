@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 protocol APIServiceProtocol {
-    func shortenLink(originalUrl: String, title: String, completion: @escaping (Result<[Link], Error>) -> Void)
+    func createShortenLink(originalUrl: String, title: String, completion: @escaping (Result<[Link], Error>) -> Void)
 }
 
 enum APIServiceError: Error {
@@ -23,7 +23,7 @@ class APIService: APIServiceProtocol {
     private let apiKey = "285938e720434ecfbd6f1d034791dd87"
     private let baseUrl = "https://api.rebrandly.com/v1/links"
     
-    func shortenLink(originalUrl: String, title: String, completion: @escaping (Result<[Link], Error>) -> Void) {
+    func createShortenLink(originalUrl: String, title: String, completion: @escaping (Result<[Link], Error>) -> Void) {
         let parameters: [String: Any] = [
             "destination": originalUrl,
             "title": title

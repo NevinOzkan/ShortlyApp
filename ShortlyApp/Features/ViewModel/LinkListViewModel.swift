@@ -10,7 +10,7 @@ import SwiftData
 
 class LinkListViewModel {
     
-    private var links: [Link] = []
+    var links: [Link] = []
     private let apiService: APIServiceProtocol
     var onLinksUpdated: (([Link]) -> Void)?
     var onError: ((String) -> Void)?
@@ -22,6 +22,19 @@ class LinkListViewModel {
         self.container = container
     }
     
+    func shortenLink(originalUrl: String, title: String) {
+        apiService.createShortenLink(originalUrl: originalUrl, title: title) { [weak self] result in
+            switch result {
+            case .success(let links):
+                if let firstLink = links.first {
+                    self?.addLink(firstLink)
+                }
+            case .failure(let error):
+                self?.onError?("Link kısaltılamadı. Hata: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     func addLink(_ link: Link) {
         links.append(link)
         onLinksUpdated?(links)
@@ -30,6 +43,7 @@ class LinkListViewModel {
 
     
     func fetchLinks() {
+        //Veritabanıda yapılan işlemlerden sonra UI güncellenmesi için.
         Task { @MainActor in
             guard let container = container else { return }
             let context = container.mainContext
@@ -38,11 +52,9 @@ class LinkListViewModel {
                 let fetchDescriptor = FetchDescriptor<ShortLink>()
                 let savedLinks = try context.fetch(fetchDescriptor)
                 
-                // Çekilen verileri 'links' dizisine dönüştür.
                 links = savedLinks.map { ShortLink in
                     Link(id: ShortLink.id, title: "Saved Link", destination: ShortLink.longURL, shortUrl: ShortLink.shortURL)
                 }
-                
                 self.onLinksUpdated?(links)
             } catch {
                 print("Veri çekme hatası: \(error.localizedDescription)")
@@ -63,7 +75,6 @@ class LinkListViewModel {
                     print("Bu link zaten kaydedilmiş.")
                     return
                 }
-
                 // Yeni linki veritabanına kaydet.
                 let newLink = ShortLink(id: id, shortURL: shortURL, longURL: longURL)
                 context.insert(newLink)
@@ -96,20 +107,6 @@ class LinkListViewModel {
                 }
             } catch {
                 print("Error deleting link: \(error.localizedDescription)")
-            }
-        }
-    }
-
-    
-    func shortenLink(originalUrl: String, title: String) {
-        apiService.shortenLink(originalUrl: originalUrl, title: title) { [weak self] result in
-            switch result {
-            case .success(let links):
-                if let firstLink = links.first {
-                    self?.addLink(firstLink)
-                }
-            case .failure(let error):
-                self?.onError?("Link kısaltılamadı. Hata: \(error.localizedDescription)")
             }
         }
     }

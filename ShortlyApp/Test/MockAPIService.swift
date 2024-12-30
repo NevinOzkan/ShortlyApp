@@ -8,7 +8,7 @@
 import Foundation
 
 class MockAPIService: APIServiceProtocol {
-    func shortenLink(originalUrl: String, title: String, completion: @escaping (Result<[Link], Error>) -> Void) {
+    func createShortenLink(originalUrl: String, title: String, completion: @escaping (Result<[Link], Error>) -> Void) {
         let mockLink1 = Link(
             id: UUID().uuidString,
             title: title,
