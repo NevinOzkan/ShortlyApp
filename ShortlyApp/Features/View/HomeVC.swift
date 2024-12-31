@@ -39,6 +39,7 @@ class HomeVC: UIViewController {
                 self?.label.isHidden = false
                 self?.tableView.isHidden = true
                 self?.titleLabel.isHidden = true
+                self?.logoImage.isHidden = false
             } else {
                 self?.tableView.reloadData()
                 self?.tableView.isHidden = false
@@ -46,6 +47,7 @@ class HomeVC: UIViewController {
                 self?.textField.isHidden = true
                 self?.label.isHidden = true
                 self?.titleLabel.isHidden = false
+                self?.logoImage.isHidden = true
             }
         }
         
