@@ -43,12 +43,13 @@ class LinkListViewModel {
 
     
     func fetchLinks() {
-        //Veritabanıda yapılan işlemlerden sonra UI güncellenmesi için.
+        //Tüm kodun ana iş parçacığında (main thread) çalışmasını sağlar.
         Task { @MainActor in
             guard let container = container else { return }
             let context = container.mainContext
             
             do {
+                //Veri sorgulama aracı.
                 let fetchDescriptor = FetchDescriptor<ShortLink>()
                 let savedLinks = try context.fetch(fetchDescriptor)
                 
@@ -72,7 +73,6 @@ class LinkListViewModel {
                 let existingLinks = try context.fetch(fetchDescriptor)
 
                 if existingLinks.contains(where: { $0.id == id }) {
-                    print("Bu link zaten kaydedilmiş.")
                     return
                 }
                 // Yeni linki veritabanına kaydet.

@@ -75,9 +75,10 @@ class HomeVC: UIViewController {
             showErrorAlert(message: "Lütfen Bir URL Gir.")
             return
         }
-        
        
         viewModel.shortenLink(originalUrl: originalUrl, title: "Shortened URL")
+        
+        shortenTextField.text = ""
     }
     
     private func showErrorAlert(message: String) {
