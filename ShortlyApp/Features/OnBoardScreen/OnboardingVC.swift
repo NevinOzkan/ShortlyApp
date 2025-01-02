@@ -11,6 +11,7 @@ class OnboardingVC: UIViewController {
 
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     
     let pages: [UIImage?] = [
@@ -19,20 +20,17 @@ class OnboardingVC: UIViewController {
         UIImage(named: "Bilgilendirme3")
     ]
     
-    private let pageControl: UIPageControl = {
-        let pc = UIPageControl()
-        pc.numberOfPages = 3
-        pc.currentPage = 0
-        pc.pageIndicatorTintColor = .lightGray
-        pc.currentPageIndicatorTintColor = .black
-        return pc
-    }()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
-        setupPageControl()
+        
+        pageControl.numberOfPages = pages.count
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = .black
     }
     
     private func setupCollectionView() {
@@ -57,16 +55,7 @@ class OnboardingVC: UIViewController {
             present(homeVC, animated: true, completion: nil)
         }
     
-    private func setupPageControl() {
-        pageControl.numberOfPages = pages.count
-        view.addSubview(pageControl)
-        
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-    }
+   
 }
 
 extension OnboardingVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

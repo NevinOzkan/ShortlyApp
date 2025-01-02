@@ -63,7 +63,6 @@
                     <constraint firstItem="rE7-wr-OCJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="8on-oH-ima"/>
                     <constraint firstAttribute="trailing" secondItem="bP0-NN-h94" secondAttribute="trailing" constant="10" id="HVl-vF-64f"/>
                     <constraint firstAttribute="trailing" secondItem="3rO-bR-O1s" secondAttribute="trailing" constant="52" id="Hvu-Ss-e4x"/>
-                    <constraint firstAttribute="trailing" secondItem="bP0-NN-h94" secondAttribute="trailing" constant="10" id="Sfy-IU-ACE"/>
                     <constraint firstItem="3rO-bR-O1s" firstAttribute="top" secondItem="iCS-qu-hg7" secondAttribute="bottom" constant="20" id="Xf9-6k-5Tw"/>
                     <constraint firstAttribute="bottom" secondItem="3rO-bR-O1s" secondAttribute="bottom" constant="20" id="ZYG-Tp-zh9"/>
                     <constraint firstItem="3rO-bR-O1s" firstAttribute="top" secondItem="iCS-qu-hg7" secondAttribute="bottom" constant="20" id="aNX-89-AXC"/>
@@ -74,7 +73,6 @@
                     <constraint firstAttribute="trailing" secondItem="iCS-qu-hg7" secondAttribute="trailing" constant="15" id="pVD-YJ-sb1"/>
                     <constraint firstItem="bP0-NN-h94" firstAttribute="leading" secondItem="rE7-wr-OCJ" secondAttribute="trailing" constant="20" id="qS9-aS-7oH"/>
                     <constraint firstItem="5cS-Jl-0WR" firstAttribute="top" secondItem="bP0-NN-h94" secondAttribute="bottom" constant="16" id="qZp-1G-o9s"/>
-                    <constraint firstAttribute="trailing" secondItem="bP0-NN-h94" secondAttribute="trailing" constant="50" id="zNx-YY-xWE"/>
                     <constraint firstItem="bP0-NN-h94" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zqP-aI-IxF"/>
                 </constraints>
             </tableViewCellContentView>
@@ -92,7 +90,7 @@
     <resources>
         <image name="del" width="14" height="18"/>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
