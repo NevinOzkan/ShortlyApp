@@ -20,8 +20,6 @@ class OnboardingVC: UIViewController {
         UIImage(named: "Bilgilendirme3")
     ]
     
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
