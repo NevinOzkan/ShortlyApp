@@ -39,11 +39,6 @@ class ShortLinkCell: UITableViewCell {
             button.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
             button.setTitle("COPIED", for: .normal)
             button.titleLabel?.textColor = .blue
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                button.setTitle("COPY", for: .normal)
-                button.backgroundColor = .clear
-            }
         }
     }
 }

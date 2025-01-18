@@ -30,6 +30,8 @@ class HomeVC: UIViewController {
         
         viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
         
+        viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
+        
         viewModel.onLinksUpdated = { [weak self] links in
             self?.viewModel.links = links
             
@@ -52,7 +54,6 @@ class HomeVC: UIViewController {
         }
         
         viewModel.fetchLinks()
-        
     }
     
     private func setupUI() {
