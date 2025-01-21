@@ -40,7 +40,6 @@ class LinkListViewModel {
         onLinksUpdated?(links)
         saveLink(id: link.id, shortURL: link.shortUrl, longURL: link.destination)
     }
-
     
     func fetchLinks() {
         //Tüm kodun ana iş parçacığında (main thread) çalışmasını sağlar.
@@ -52,7 +51,7 @@ class LinkListViewModel {
                 //Veri sorgulama aracı.
                 let fetchDescriptor = FetchDescriptor<ShortLink>()
                 let savedLinks = try context.fetch(fetchDescriptor)
-                
+            
                 links = savedLinks.map { ShortLink in
                     Link(id: ShortLink.id, title: "Saved Link", destination: ShortLink.longURL, shortUrl: ShortLink.shortURL)
                 }
@@ -82,18 +81,17 @@ class LinkListViewModel {
 
                 print("Link kaydedildi: \(shortURL)")
             } catch {
-                print("Link kayıt edilemedi: \(error.localizedDescription)")
+                print("Link kayıt edilmedi: \(error.localizedDescription)")
             }
         }
     }
-
     
     func deleteLink(at indexPath: IndexPath) {
         Task { @MainActor in
             let linkToDelete = links[indexPath.row]
             guard let container = container else { return }
             let context = container.mainContext
-
+            
             do {
                 let fetchDescriptor = FetchDescriptor<ShortLink>()
                 let savedLinks = try context.fetch(fetchDescriptor)
