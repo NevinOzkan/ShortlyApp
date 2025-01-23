@@ -51,7 +51,7 @@ class LinkListViewModel {
                 //Veri sorgulama aracı.
                 let fetchDescriptor = FetchDescriptor<ShortLink>()
                 let savedLinks = try context.fetch(fetchDescriptor)
-            
+                
                 links = savedLinks.map { ShortLink in
                     Link(id: ShortLink.id, title: "Saved Link", destination: ShortLink.longURL, shortUrl: ShortLink.shortURL)
                 }
@@ -66,11 +66,11 @@ class LinkListViewModel {
         Task { @MainActor in
             guard let container = container else { return }
             let context = container.mainContext
-
+            
             do {
                 let fetchDescriptor = FetchDescriptor<ShortLink>()
                 let existingLinks = try context.fetch(fetchDescriptor)
-
+                
                 if existingLinks.contains(where: { $0.id == id }) {
                     return
                 }
@@ -78,7 +78,7 @@ class LinkListViewModel {
                 let newLink = ShortLink(id: id, shortURL: shortURL, longURL: longURL)
                 context.insert(newLink)
                 try context.save()
-
+                
                 print("Link kaydedildi: \(shortURL)")
             } catch {
                 print("Link kayıt edilmedi: \(error.localizedDescription)")
@@ -95,11 +95,11 @@ class LinkListViewModel {
             do {
                 let fetchDescriptor = FetchDescriptor<ShortLink>()
                 let savedLinks = try context.fetch(fetchDescriptor)
-
+                
                 if let shortLink = savedLinks.first(where: { $0.id == linkToDelete.id }) {
                     context.delete(shortLink)
                     try context.save()
-
+                    
                     links.remove(at: indexPath.row)
                     self.onLinksUpdated?(links)
                 }
