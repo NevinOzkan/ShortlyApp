@@ -12,7 +12,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -35,7 +35,7 @@ class HomeVC: UIViewController {
             
             if links.isEmpty {
                 self?.imageView.isHidden = false
-                self?.textField.isHidden = false
+                self?.descriptionLabel.isHidden = false
                 self?.label.isHidden = false
                 self?.tableView.isHidden = true
                 self?.titleLabel.isHidden = true
@@ -44,7 +44,7 @@ class HomeVC: UIViewController {
                 self?.tableView.reloadData()
                 self?.tableView.isHidden = false
                 self?.imageView.isHidden = true
-                self?.textField.isHidden = true
+                self?.descriptionLabel.isHidden = true
                 self?.label.isHidden = true
                 self?.titleLabel.isHidden = false
                 self?.logoImage.isHidden = true
@@ -62,6 +62,7 @@ class HomeVC: UIViewController {
         tableView.dataSource = self
     }
     
+    
     func addLink(_ link: Link) {
         let newIndexPath = IndexPath(row: viewModel.links.count, section: 0)
         viewModel.links.append(link)
@@ -78,7 +79,9 @@ class HomeVC: UIViewController {
         viewModel.shortenLink(originalUrl: originalUrl, title: "Shortened URL")
         
         shortenTextField.text = ""
+       
     }
+
     
     private func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -107,8 +110,11 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 15 // Satırlar arasında 15px boşluk bırak
     }
 }

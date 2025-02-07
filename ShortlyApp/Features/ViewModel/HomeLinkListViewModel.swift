@@ -14,14 +14,13 @@ class LinkListViewModel {
     private let apiService: APIServiceProtocol
     var onLinksUpdated: (([Link]) -> Void)?
     var onError: ((String) -> Void)?
-    
     private var container: ModelContainer?
     
     init(apiService: APIServiceProtocol = APIService(), container: ModelContainer?) {
         self.apiService = apiService
         self.container = container
     }
-    
+
     func shortenLink(originalUrl: String, title: String) {
         apiService.createShortenLink(originalUrl: originalUrl, title: title) { [weak self] result in
             switch result {
@@ -34,13 +33,13 @@ class LinkListViewModel {
             }
         }
     }
-    
+
     func addLink(_ link: Link) {
         links.append(link)
         onLinksUpdated?(links)
         saveLink(id: link.id, shortURL: link.shortUrl, longURL: link.destination)
     }
-    
+
     func fetchLinks() {
         //Tüm kodun ana iş parçacığında (main thread) çalışmasını sağlar.
         Task { @MainActor in
@@ -61,7 +60,7 @@ class LinkListViewModel {
             }
         }
     }
-    
+
     func saveLink(id: String, shortURL: String, longURL: String) {
         Task { @MainActor in
             guard let container = container else { return }
@@ -85,7 +84,7 @@ class LinkListViewModel {
             }
         }
     }
-    
+
     func deleteLink(at indexPath: IndexPath) {
         Task { @MainActor in
             let linkToDelete = links[indexPath.row]

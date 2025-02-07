@@ -11,7 +11,6 @@ class OnboardingCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -19,6 +18,5 @@ class OnboardingCell: UICollectionViewCell {
     
     func configure(with image: UIImage?) {
         imageView.image = image
-       
     }
 }

@@ -20,9 +20,21 @@ class ShortLinkCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-    }
     
+        self.backgroundColor = .clear
+        
+        self.contentView.backgroundColor = .white
+        self.contentView.layer.cornerRadius = 30
+        self.contentView.layer.masksToBounds = true
+        
+        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.08
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowRadius = 6
+        self.layer.masksToBounds = false
+    }
+
     func configureCell(with link: Link) {
         longUrl.text = link.destination
         shortUrl.text = link.shortUrl
