@@ -20,19 +20,17 @@ class ShortLinkCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         self.backgroundColor = .clear
-        
         self.contentView.backgroundColor = .white
-        self.contentView.layer.cornerRadius = 30
+        self.contentView.layer.cornerRadius = 10
         self.contentView.layer.masksToBounds = true
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.08
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowRadius = 6
-        self.layer.masksToBounds = false
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 30, left: 25, bottom: 10, right: 25))
     }
 
     func configureCell(with link: Link) {

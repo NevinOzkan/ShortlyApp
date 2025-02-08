@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="z5x-Ve-gXU">
-                    <rect key="frame" x="136" y="79" width="121" height="59"/>
+                    <rect key="frame" x="136" y="79" width="121" height="73"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZg-hs-zJB">
                     <rect key="frame" x="140" y="754" width="113" height="44"/>
@@ -39,7 +39,7 @@
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="4Cf-jm-aTF">
-                    <rect key="frame" x="24" y="238" width="345" height="390"/>
+                    <rect key="frame" x="24" y="252" width="345" height="390"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="390" id="pte-PX-4cN"/>
@@ -52,7 +52,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Pl1-zb-DMr">
-                    <rect key="frame" x="150" y="698" width="93" height="26"/>
+                    <rect key="frame" x="150" y="712" width="93" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="gws-Sl-a6p"/>
                     </constraints>
@@ -63,7 +63,7 @@
             <constraints>
                 <constraint firstItem="Pl1-zb-DMr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="150" id="4Sd-D4-hCP"/>
                 <constraint firstItem="z5x-Ve-gXU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="64k-pZ-Jsy"/>
-                <constraint firstItem="UZg-hs-zJB" firstAttribute="top" secondItem="Pl1-zb-DMr" secondAttribute="bottom" constant="30" id="81b-dP-rbT"/>
+                <constraint firstItem="UZg-hs-zJB" firstAttribute="top" secondItem="Pl1-zb-DMr" secondAttribute="bottom" constant="16" id="81b-dP-rbT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4Cf-jm-aTF" secondAttribute="trailing" constant="24" id="CEr-Tp-yGS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UZg-hs-zJB" secondAttribute="bottom" constant="20" id="Lg6-Gx-npO"/>
                 <constraint firstItem="z5x-Ve-gXU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PiF-Oi-Vdq"/>

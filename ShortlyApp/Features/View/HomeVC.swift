@@ -26,6 +26,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
         
         viewModel = LinkListViewModel(apiService: MockAPIService(), container: container)
@@ -62,26 +63,22 @@ class HomeVC: UIViewController {
         tableView.dataSource = self
     }
     
-    
     func addLink(_ link: Link) {
         let newIndexPath = IndexPath(row: viewModel.links.count, section: 0)
         viewModel.links.append(link)
         tableView.insertRows(at: [newIndexPath], with: .automatic)
     }
     
-    
     @IBAction func shortenButton(_ sender: Any) {
         guard let originalUrl = shortenTextField.text, !originalUrl.isEmpty else {
             showErrorAlert(message: "Lütfen Bir URL Gir.")
             return
         }
-       
+        
         viewModel.shortenLink(originalUrl: originalUrl, title: "Shortened URL")
         
         shortenTextField.text = ""
-       
     }
-
     
     private func showErrorAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -107,14 +104,13 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             guard let self = self else { return }
             self.viewModel.deleteLink(at: indexPath)
         }
+       
         
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 240
     }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 15 // Satırlar arasında 15px boşluk bırak
-    }
+   
 }

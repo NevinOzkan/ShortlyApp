@@ -8,11 +8,10 @@
 import UIKit
 
 class OnboardingVC: UIViewController {
-
+    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
-    
     
     let pages: [UIImage?] = [
         UIImage(named: "Bilgilendirme1"),
@@ -46,14 +45,12 @@ class OnboardingVC: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: "OnboardingCell")
     }
     
-
+    
     @IBAction func skipButton(_ sender: Any) {
         let homeVC = HomeVC()
-            homeVC.modalPresentationStyle = .fullScreen
-            present(homeVC, animated: true, completion: nil)
-        }
-    
-   
+        homeVC.modalPresentationStyle = .fullScreen
+        present(homeVC, animated: true, completion: nil)
+    }
 }
 
 extension OnboardingVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

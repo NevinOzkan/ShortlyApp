@@ -12,7 +12,7 @@ class OnboardingPage1VC: UIViewController {
     
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ımage: UIImageView!
     
     

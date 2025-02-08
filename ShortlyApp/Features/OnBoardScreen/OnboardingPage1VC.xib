@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingPage1VC" customModule="ShortlyApp" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionLabel" destination="T58-2l-9Uw" id="FKZ-4Z-eV2"/>
                 <outlet property="label" destination="FY8-fJ-k65" id="7Fv-er-ryN"/>
                 <outlet property="logoImage" destination="o9S-In-oYP" id="ndL-3s-QQm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
