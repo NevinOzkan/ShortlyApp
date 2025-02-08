@@ -46,8 +46,8 @@ class ShortLinkCell: UITableViewCell {
         UIPasteboard.general.string = shortUrl.text
         
         if let button = sender as? UIButton {
-            button.layer.backgroundColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-            button.setTitle("COPIED", for: .normal)
+            button.layer.backgroundColor = CGColor(red:40/255, green: 0/255, blue: 100/255, alpha: 1)
+            button.setTitle("COPIED!", for: .normal)
             button.titleLabel?.textColor = .blue
         }
     }

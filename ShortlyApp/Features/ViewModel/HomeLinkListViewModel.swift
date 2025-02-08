@@ -73,7 +73,7 @@ class LinkListViewModel {
                 if existingLinks.contains(where: { $0.id == id }) {
                     return
                 }
-                // Yeni linki veritabanına kaydet.
+                
                 let newLink = ShortLink(id: id, shortURL: shortURL, longURL: longURL)
                 context.insert(newLink)
                 try context.save()
