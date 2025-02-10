@@ -10,87 +10,86 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="163" id="KGk-i7-Jjw" customClass="ShortLinkCell" customModule="ShortlyApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="385" height="163"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="173" id="KGk-i7-Jjw" customClass="ShortLinkCell" customModule="ShortlyApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="385" height="173"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="385" height="163"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="385" height="173"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-wr-OCJ">
-                        <rect key="frame" x="30.000000000000004" y="16" width="51.333333333333343" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="62u-yB-26P"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCS-qu-hg7">
-                        <rect key="frame" x="30" y="73" width="325" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="7y3-zm-hFq"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <color key="textColor" red="0.3963116109" green="0.79979366060000001" blue="0.80392676590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rO-bR-O1s">
-                        <rect key="frame" x="30" y="121" width="325" height="25"/>
-                        <color key="backgroundColor" red="0.3963116109" green="0.79979366060000001" blue="0.80392676590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="25" id="vDx-47-v97"/>
-                        </constraints>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="COPY">
-                            <fontDescription key="titleFontDescription" type="system" weight="black" pointSize="19"/>
-                        </buttonConfiguration>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="copyButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jjs-D9-tUW"/>
-                        </connections>
-                    </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cS-Jl-0WR">
-                        <rect key="frame" x="16" y="56" width="353" height="1"/>
-                        <color key="backgroundColor" systemColor="systemGrayColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="cgQ-d1-AK2"/>
-                        </constraints>
-                    </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP0-NN-h94">
-                        <rect key="frame" x="111.33333333333334" y="16" width="257.66666666666663" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="17" id="WNi-VM-cTc"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="del"/>
-                        <connections>
-                            <action selector="deleteCell:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9lg-fd-yCa"/>
-                        </connections>
-                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="EMU-QK-6Xx">
+                        <rect key="frame" x="16" y="16" width="353" height="148"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UwK-S3-uac">
+                                <rect key="frame" x="0.0" y="0.0" width="353" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-wr-OCJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="305" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="62u-yB-26P"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP0-NN-h94">
+                                        <rect key="frame" x="315" y="0.0" width="38" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="gTP-4I-kjb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="del"/>
+                                        <connections>
+                                            <action selector="deleteCell:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9lg-fd-yCa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cS-Jl-0WR">
+                                <rect key="frame" x="0.0" y="49" width="353" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="cgQ-d1-AK2"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCS-qu-hg7">
+                                <rect key="frame" x="0.0" y="67" width="353" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="7y3-zm-hFq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.3963116109" green="0.79979366060000001" blue="0.80392676590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rO-bR-O1s">
+                                <rect key="frame" x="0.0" y="108" width="353" height="40"/>
+                                <color key="backgroundColor" red="0.3963116109" green="0.79979366060000001" blue="0.80392676590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="vDx-47-v97"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="COPY">
+                                    <fontDescription key="titleFontDescription" type="system" weight="black" pointSize="19"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="copyButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jjs-D9-tUW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="bP0-NN-h94" secondAttribute="trailing" constant="16" id="9IG-LN-7ee"/>
-                    <constraint firstAttribute="trailing" secondItem="iCS-qu-hg7" secondAttribute="trailing" constant="30" id="KKE-za-DF0"/>
-                    <constraint firstItem="rE7-wr-OCJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Qnf-gD-PX7"/>
-                    <constraint firstItem="5cS-Jl-0WR" firstAttribute="top" secondItem="rE7-wr-OCJ" secondAttribute="bottom" constant="16" id="UEg-ap-7gm"/>
-                    <constraint firstItem="iCS-qu-hg7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="VOu-gu-LJy"/>
-                    <constraint firstItem="3rO-bR-O1s" firstAttribute="top" secondItem="iCS-qu-hg7" secondAttribute="bottom" constant="24" id="W2m-Xe-NmP"/>
-                    <constraint firstItem="iCS-qu-hg7" firstAttribute="top" secondItem="5cS-Jl-0WR" secondAttribute="bottom" constant="16" id="duP-8J-wK3"/>
-                    <constraint firstAttribute="trailing" secondItem="3rO-bR-O1s" secondAttribute="trailing" constant="30" id="icn-QM-Fdb"/>
-                    <constraint firstItem="bP0-NN-h94" firstAttribute="leading" secondItem="rE7-wr-OCJ" secondAttribute="trailing" constant="30" id="oK4-IG-9ey"/>
-                    <constraint firstItem="rE7-wr-OCJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="p0g-5a-9jb"/>
-                    <constraint firstItem="5cS-Jl-0WR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="pEO-qa-fmu"/>
-                    <constraint firstItem="bP0-NN-h94" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="sd5-T2-Vqe"/>
-                    <constraint firstAttribute="bottom" secondItem="3rO-bR-O1s" secondAttribute="bottom" constant="20" id="tSq-D0-yDu"/>
-                    <constraint firstAttribute="trailing" secondItem="5cS-Jl-0WR" secondAttribute="trailing" constant="16" id="u1D-9K-BKg"/>
-                    <constraint firstItem="3rO-bR-O1s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="x38-MO-WIY"/>
+                    <constraint firstAttribute="bottom" secondItem="EMU-QK-6Xx" secondAttribute="bottom" constant="16" id="1YR-XK-EbR"/>
+                    <constraint firstItem="EMU-QK-6Xx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="4Lt-FN-uOP"/>
+                    <constraint firstAttribute="trailing" secondItem="EMU-QK-6Xx" secondAttribute="trailing" constant="16" id="8uh-Va-owy"/>
+                    <constraint firstItem="EMU-QK-6Xx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="9hU-9f-d5G"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -101,7 +100,7 @@
                 <outlet property="shortUrl" destination="iCS-qu-hg7" id="KlK-Ql-mUr"/>
                 <outlet property="view" destination="5cS-Jl-0WR" id="IYm-FJ-HgD"/>
             </connections>
-            <point key="canvasLocation" x="187.02290076335876" y="61.619718309859159"/>
+            <point key="canvasLocation" x="187.02290076335876" y="65.140845070422543"/>
         </tableViewCell>
     </objects>
     <resources>

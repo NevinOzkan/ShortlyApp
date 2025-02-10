@@ -117,7 +117,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGray4Color"/>
+            <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
                 <constraint firstItem="iKm-Cr-jEX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5cv-qW-0i4"/>
                 <constraint firstItem="h2n-N1-31W" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7bD-6X-jir"/>
@@ -148,6 +148,9 @@
         <image name="shape" width="237" height="128"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
