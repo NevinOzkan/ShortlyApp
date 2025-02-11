@@ -26,7 +26,7 @@
                     <rect key="frame" x="16" y="91" width="361" height="706"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-pE-y9C">
-                            <rect key="frame" x="100" y="0.0" width="161" height="157"/>
+                            <rect key="frame" x="100" y="0.0" width="161" height="31"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="o9S-In-oYP">
                                     <rect key="frame" x="0.0" y="0.0" width="161" height="33"/>
@@ -40,9 +40,9 @@
                             </constraints>
                         </view>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="0Ry-Vl-6gf">
-                            <rect key="frame" x="0.0" y="177" width="361" height="324"/>
+                            <rect key="frame" x="0.0" y="51" width="361" height="450"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="324" id="TVO-34-L0H"/>
+                                <constraint firstAttribute="height" constant="450" id="TVO-34-L0H"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlR-Ji-V3N">

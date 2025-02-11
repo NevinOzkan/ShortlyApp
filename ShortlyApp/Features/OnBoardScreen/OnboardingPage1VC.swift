@@ -21,7 +21,6 @@ class OnboardingPage1VC: UIViewController {
 
     }
 
-
     @IBAction func startButton(_ sender: Any) {
         let onboardingVC = OnboardingVC()
         onboardingVC.modalPresentationStyle = .fullScreen
